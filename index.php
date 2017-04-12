@@ -99,7 +99,6 @@ if(isset($_GET['filter'])) {
 						echo "
 						<li class=\"movieThumbs\">
 							<img src=\"images/thumbs/{$row['movies_thumb']}\" alt=\"{$row['movies_title']}\">
-							<h2>{$row['movies_title']}</h2>
 						</li>";
 					}
 				}else{
@@ -108,15 +107,32 @@ if(isset($_GET['filter'])) {
 			?>
 		</ul>
 
+		<div id="pop">
+		  <img src="images/closeButton.svg" alt="close full image button" id="closeButton" title="esc key">
+
+		  <div id="fullPhotoInfo">
+		    <img id="mainImg" alt="Full selected photo">
+		    <p id="desc"></p>
+		    <p id="cred">Photo Credit:</p>
+		  </div>
+
+		  <div id="nextGallButton" title="Right arrow key">
+		    <div id="arrowRight"></div>
+		  </div>
+		  <div id="prevGallButton" title="Left arrow key">
+		    <div id="arrowLeft"></div>
+		  </div>
+		</div>
+
 		</div><!-- dynamicContent Finishes -->
 	</div>
 
 </section>
 </div><!--End of site container-->
 <script src="script/main.js"></script>
-<script src="script/jsObject.js"></script>
+<!--<script src="script/jsObject.js"></script>
 <script src="greensock/src/minified/TimelineLite.min.js"></script>
 <script src="script/TweenMax.min.js"></script>
-<script src="greensock/src/minified/TweenLite.min.js"></script>
+<script src="greensock/src/minified/TweenLite.min.js"></script>-->
 </body>
 </html>

@@ -1,6 +1,6 @@
 (function(){
 //console.log("working");
-  var pic = document.querySelectorAll(".box"),
+  var pic = document.querySelectorAll(".movieThumbs"),
       pop = document.querySelector("#pop"),
       //console.log(pop);
       closePop = document.querySelector("#closeButton");

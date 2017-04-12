@@ -210,7 +210,7 @@ select {
   padding-top: 100px;
 }
 
-.box {
+.movieThumbs {
   width: 150px;
   height: 50px;
   background-color: #c0c0c0;
@@ -528,11 +528,9 @@ select {
     padding-top: 250px;
   }
 
-  .box {
-    width: 250px;
-    height: 150px;
+  .movieThumbs {
     background-color: #c0c0c0;
-    margin: 20px;
+    margin: 50px 0 200px 0;
   }
 
   .title {
@@ -573,16 +571,14 @@ select {
     padding-top: 100px;
   }
 
-  .box {
-    width: 250px;
-    height: 150px;
+  .movieThumbs {
     background-color: #c0c0c0;
-    margin: 20px;
+    margin: 50px 0 250px 0;
   }
 
   .title {
     text-align: center;
-    margin-top: 150px;
+    margin-top: 100px;
   }
 
   #pop {
