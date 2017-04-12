@@ -23,8 +23,9 @@ if(isset($_GET['filter'])) {
 <!doctype html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" name="viewport" content="width=device-width"/>
 <title>reVIEWed</title>
+<link href="favicon.ico" rel="shortcut icon">
 <link href="http://fonts.googleapis.com/css?family=Mystery+Quest" rel="stylesheet" type="text/css">
 <!--<link href="css/foundation.css" rel="stylesheet" type="text/css">
 <link href="css/foundation.min.css" rel="stylesheet" type="text/css"> Needed for data interchange that isnt working-->
@@ -35,6 +36,7 @@ if(isset($_GET['filter'])) {
 <h1 class="hidden">reVIEWed - movie review site</h1>
 <div id="siteCon"> <!--Start of site Container-->
 		<nav id="mainNav">
+			<div id="sideBar">
 			<h2 class="hidden">Main navigation</h2>
 
 					<img src="images/logo.png" id="logo" alt="reVIEWed Logo">
@@ -54,6 +56,7 @@ if(isset($_GET['filter'])) {
 						</form>
 						<h6 id="copyright">Copyright © 2017</h6>
 					</ul>
+				</div>
 		</nav>
 
 		<section id="mobileNav">
@@ -85,28 +88,49 @@ if(isset($_GET['filter'])) {
 
 		<section id="page">
 	<div id="pageCon" class="welcomePage">
-		<h1 class="home">Welcome!</h1>
-		<p id="paraphrase"></p>
+		<div class="tableCon">
+			<div class="vertCon">
+		<h1 class="home"><?php if(isset($_GET['filter'])){ echo $filter; }else{ echo "Welcome!";} ?></h1>
+		<p id="paraphrase">
+		</p>
 		<div id="content"> <!-- dynamicContent goes in here -->
 			<!-- welcome page -->
-			<p id="welcomeText">Here you can search for movies by name or genre, watch trailers and read or write reviews!</p>
+			<p id="welcomeText"> <?php if(isset($_GET['filter'])){ echo ""; }else{ echo "Here you can search for movies by name or genre, watch trailers and read or write reviews.";} ?></p>
 
 			<!-- movie search-->
 			<ul class="movieCon">
 			<?php
-				if(!is_string($getMovies)){
+				if(isset($_GET['filter'])){
 					while($row = mysqli_fetch_array($getMovies)){
 						echo "
 						<li class=\"movieThumbs\">
 							<img src=\"images/thumbs/{$row['movies_thumb']}\" alt=\"{$row['movies_title']}\">
-							<h2>{$row['movies_title']}</h2>
 						</li>";
 					}
 				}else{
-					echo "<p>{$getMovies}</p>";
+					echo "<p></p>";
 				}
 			?>
 		</ul>
+	</div>
+</div>
+
+		<div id="pop">
+		  <img src="images/closeButton.svg" alt="close full image button" id="closeButton" title="esc key">
+
+		  <div id="fullPhotoInfo">
+		    <img id="mainImg" alt="Full selected photo">
+		    <p id="desc"></p>
+		    <p id="cred">Photo Credit:</p>
+		  </div>
+
+		  <div id="nextGallButton" title="Right arrow key">
+		    <div id="arrowRight"></div>
+		  </div>
+		  <div id="prevGallButton" title="Left arrow key">
+		    <div id="arrowLeft"></div>
+		  </div>
+		</div>
 
 		</div><!-- dynamicContent Finishes -->
 	</div>
@@ -114,9 +138,9 @@ if(isset($_GET['filter'])) {
 </section>
 </div><!--End of site container-->
 <script src="script/main.js"></script>
-<script src="script/jsObject.js"></script>
+<!--<script src="script/jsObject.js"></script>
 <script src="greensock/src/minified/TimelineLite.min.js"></script>
 <script src="script/TweenMax.min.js"></script>
-<script src="greensock/src/minified/TweenLite.min.js"></script>
+<script src="greensock/src/minified/TweenLite.min.js"></script>-->
 </body>
 </html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>reVIEWed</title>
+<link href="http://fonts.googleapis.com/css?family=Mystery+Quest" rel="stylesheet" type="text/css">
+<!--<link href="css/foundation.css" rel="stylesheet" type="text/css">
+<link href="css/foundation.min.css" rel="stylesheet" type="text/css"> Needed for data interchange that isnt working-->
+<link href="css/main.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h1 class="hidden">reVIEWed - movie review site</h1>
+<div id="siteCon"> <!--Start of site Container-->
+		<nav id="mainNav">
+			<h2 class="hidden">Main navigation</h2>
+
+					<img src="images/logo.png" id="logo" alt="reVIEWed Logo">
+					<ul>
+						<form action="/action_page.php">
+							  <input id="search" type="text" placeholder="search by name" name="name"><br>
+								<select name="genres">
+									<option value="select">search by genre</option>
+									<option value="action">Action</option>
+									<option value="comedy">Comedy</option>
+									<option value="family">Family</option>
+									<option value="romance">Romance</option>
+								</select>
+								<br>
+						  <input type="submit" value="Submit">
+						</form>
+						<h6 id="copyright">Copyright © 2017</h6>
+					</ul>
+		</nav>
+
+		<section id="mobileNav">
+			<h2 class="hidden">Mobile Navigation</h2>
+			<div id="navMobileBackground">
+			<img src="images/logo.png" id="mobileLogo" alt="reVIEWed logo">
+
+					<img src="images/hamMenu.png" id="hamIcon" alt="Mobile Navigation">
+				</div>
+		</section>
+
+		<nav id="navDropdown" class="hidden">
+			<h2 class="hidden">Mobile navigation drop down menu</h2>
+			<form action="/action_page.php">
+					<input id="search" type="text" placeholder="search by name" name="name"><br>
+					<select name="genres">
+						<option value="select">search by genre</option>
+						<option value="action">Action</option>
+						<option value="comedy">Comedy</option>
+						<option value="family">Family</option>
+						<option value="romance">Romance</option>
+					</select>
+					<br>
+				<input type="submit" value="Submit">
+			</form>
+		</nav>
+
+<div class="boxed">
+	<div class="box"><p class="title">Beauty and the Beast</p></div>
+	<div class="box"><p class="title">The Proposal</p></div>
+	<div class="box"><p class="title">Easy A</p></div>
+	<div class="box"><p class="title">Bad Moms</p></div>
+	<div class="box"><p class="title">She's the Man</p></div>
+	<div class="box"><p class="title">Up</p></div>
+	<div class="box"><p class="title">Inside Out</p></div>
+	<div class="box"><p class="title">The Heat</p></div>
+	<div class="box"><p class="title">The Boss</p></div>
+	<div class="box"><p class="title">Zombieland</p></div>
+</div>
+
+<div id="pop">
+  <img src="images/closeButton.svg" alt="close full image button" id="closeButton" title="esc key">
+
+  <div id="fullPhotoInfo">
+    <img id="mainImg" alt="Full selected photo">
+    <p id="desc"></p>
+    <p id="cred">Photo Credit:</p>
+  </div>
+
+  <div id="nextGallButton" title="Right arrow key">
+    <div id="arrowRight"></div>
+  </div>
+  <div id="prevGallButton" title="Left arrow key">
+    <div id="arrowLeft"></div>
+  </div>
+</div>
+
+</section><!-- dynamicContent Finishes -->
+</div><!--End of site container-->
+<script src="script/main.js"></script>
+<!--<script src="script/jsObject.js"></script>
+<script src="greensock/src/minified/TimelineLite.min.js"></script>
+<script src="script/TweenMax.min.js"></script>
+<script src="greensock/src/minified/TweenLite.min.js"></script>-->
+</body>
+</html>
