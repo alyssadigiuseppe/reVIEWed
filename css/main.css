@@ -345,6 +345,25 @@ select {
   border-right:40px solid black;
 }
 
+#content ul {
+  padding: 0px;
+}
+
+.movieCon {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.movieThumbs {
+  width:25%;
+  list-style-type: none;
+}
+
+.movieThumbs img {
+  width:100%;
+}
+
 #mobileNav {
   overflow:hidden;
 	margin-top:0px;
