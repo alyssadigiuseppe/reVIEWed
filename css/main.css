@@ -19,9 +19,10 @@
 }
 
 body {
-  background: #ffffff;
+  background: #f9fbfb;
   font-size: 16px;
-  margin:0px; }
+  margin:0px;
+}
 
 h1 {
   text-align: center;
@@ -133,10 +134,12 @@ section, article { position: relative; width: 635px; margin: 0 auto; border: 0; 
 #pageCon {
   overflow: initial;
 }
+
 /*----------------------------------------------------------------------------*/
 #logo {
   width:30%;
   display:block;
+  float:left;
 }
 
 #logo:hover {
@@ -149,64 +152,75 @@ section, article { position: relative; width: 635px; margin: 0 auto; border: 0; 
 	position:relative;
 	background-color: #c44449;
 	width: 100%;
-	height:15%;
 	font-size: 24px;
 	line-height: 60px;
   z-index: 1;
 }
 
 form {
-  height:5vh;
+  height:inherit;
 }
 
 #mainNav ul {
+  width:65%;
 	padding: 0px;
-	/*margin:15vh 0 0 0;*/
+  height:40px;
+	margin: 0px;
 	/*text-align: center;*/
 	list-style-type: none;
+  float:right;
 }
 
 #sideBar {
   padding:5vh 5%;
+  overflow: hidden;
 }
 
 input.search {
   position: relative;
 	height: 37px;
-	padding: 0px;
-  width:30%;
-  text-align: center;
-  top: -11vh;
-  left: 25vh;
-  border-radius: 5px;
+  width:45%;
+  float: left;
+	padding: 0px 0px 0px 5%;
+  margin: -60px auto auto auto;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  border:none;
 }
 
-select {
-  display: inline-block;
-	height: 40px;
-	width: 30%;
-  margin:auto;
-  margin-top: -18.5vh;
-	font-family: 'acherus_militant_1_-_light.otf';
-  float: right;
+#livesearch {
+  display:none;
+  background-color: #f9fbfb;
 }
 
-/*input {
-  display: inline-block;
-	height: 40px;
-	padding: 0 40px 0 40px;
-	font-family: 'acherus_militant_1_-_light.otf';
-}*/
-
-/*----------------------------------------------------------------------------*/
-#copyright {
+#searchButton {
   display: none;
 }
 
-#mobileCopyright {
-	color: #c0c0c0;
+select {
+  font-family: 'acherus_militant_1_-_light.otf';
+  text-transform: capitalize;
+  float:right;
+  display: inline-block;
+	height: 37px;
+	width: 45%;
+  padding-left:5%;
+  border:none;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  color:#4a4949;
+  background-color: #ffffff;
+}
+
+#genreArrow {
+  display: none;
+}
+
+#copyright {
+	color: #f2f2f2;
 	text-align: center;
 	font-family: 'acherus_militant_1_-_light.otf';
+  margin-top: 40vh;
   margin-bottom: 0vh;
   height:5vh;
   line-height:5vh;
@@ -239,6 +253,7 @@ select {
   left: 0;
   z-index: 4;
   opacity: 0;
+  overflow: scroll;
 }
 
 #closeButton {
@@ -253,7 +268,7 @@ select {
   cursor: pointer;
 }
 
-#fullPhotoInfo {
+#movieTrailer {
   height: 82%;
   position: absolute;
   right: 0;
@@ -271,7 +286,8 @@ select {
   margin: 0 auto;
   position: relative;
   max-height: 80%;
-  width: auto;
+  width: 70%;
+  margin-top: 20%;
 }
 
 #desc {
@@ -292,7 +308,7 @@ select {
   line-height: 15px;
 }
 
-#nextGallButton {
+/*#nextGallButton {
   transition: .3s;
   position: absolute;
   right:0;
@@ -350,7 +366,7 @@ select {
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent;
   border-right:40px solid #0c0c0c;
-}
+}*/
 
 #content {
   max-width: 1024px;
@@ -376,10 +392,73 @@ select {
   width:100%;
 }
 
+.movieThumbs img:hover {
+  cursor: pointer;
+}
+
+#mobileNav {
+  overflow:hidden;
+	position: relative;
+	width:100%;
+	display:block;
+}
+
+#navMobileBackground {
+  width:96%;
+  background-color:rgba(255, 255, 255, 0.51);
+  padding: 2%;
+  overflow:hidden;
+}
+
+#mobileLogo {
+	margin-top:10px;
+	margin-left: 38%;
+	max-height:123px;
+}
+
+#mobileLogo:hover {
+	cursor: pointer;
+}
+
+#hamIcon {
+	float:right;
+}
+
+#hamIcon:hover {
+	cursor: pointer;
+}
+
+#navDropdown {
+	position:absolute;
+  z-index:1;
+	margin-top:-50px;
+	font-family: 'erasitcmedium';
+	width: 100%;
+	background-color: grey;
+	text-align: center;
+	line-height: 60px;
+}
+
+#navDropdown p {
+	margin-top:0px;
+	margin-bottom:1%;
+	background-color:#181818;
+	height:60px;
+	color: #f9fbfb;
+	font-size:24px;
+}
+
+#navDropdown p:hover {
+	transition:.5s;
+	cursor: pointer;
+	background-color:#292929;
+}
+
 #page {
   width:100%;
   margin-top: 0px;
   height: 100%;
+  display: table;
 }
 
 #pageCon {
@@ -424,7 +503,7 @@ select {
 .photos {
   padding: 5px;
   margin-top: 10px;
-  color: white;
+  color: #f9fbfb;
   font-weight: bold;
   font-size: 1.5em;
   text-align: center;
@@ -457,107 +536,129 @@ select {
   margin:auto;
 }
 
-@media only screen and (min-width: 500px){
-
-  input.search {
-    position: relative;
-  	height: 37px;
-  	padding: 0px;
-    width:30%;
-    text-align: center;
-    top: -11vh;
-    left: 32vh;
-  }
-}
-
-/* Medium Screen --------------------------------------------------------------*/
+/* Medium Screen */
 @media only screen and (min-width: 640px){
+  body {
+    overflow:hidden;
+  }
+
   h1 {
     font-size: 72px;
   }
 
   #logo {
-  margin:auto;
-  width:90%;
-  display:block;
-}
+    margin:auto;
+    width:90%;
+    display:block;
+    float:none;
+  }
+
+  #logo:hover {
+  	cursor: pointer;
+  }
 
   #mainNav {
-	font-family: 'erasitcmedium';
-	overflow: hidden;
-	position:relative;
-	min-height: 100vh;
-	background-color: #c44449;
-	width: 20%;
-	max-width: 251px;
-	height:100%;
-	font-size: 24px;
-	line-height: 60px;
-	display:table;
-  float:left;
-  z-index: 1;
-}
+  	font-family: 'erasitcmedium';
+  	overflow: hidden;
+  	position:relative;
+  	min-height: 100vh;
+  	background-color: #c44449;
+  	width: 20%;
+  	max-width: 251px;
+  	height:100%;
+  	font-size: 24px;
+  	line-height: 60px;
+  	display:table;
+    float:left;
+  }
 
+  form {
+    height:25vh;
+  }
 
-form {
-  height:25vh;
-}
+  #mainNav ul {
+    width:100%;
+  	padding: 0px;
+  	margin:15vh 0 0 0;
+  	text-align: center;
+  	list-style-type: none;
+  }
 
-#mainNav ul {
-	padding: 0px;
-	margin:15vh 0 0 0;
-	text-align: center;
-	list-style-type: none;
-}
+  #sideBar {
+    padding:5vh 5%;
+    overflow: inherit;
+    height: 100vh;
+  }
 
-#sideBar {
-  padding:5vh 5%;
-}
+  select {
+    display:block;
+  	height: 40px;
+  	width: 100%;
+    margin:auto;
+  	font-family: 'acherus_militant_1_-_light.otf';
+    text-transform: capitalize;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+    padding-left:5%;
+    float:none;
+  }
 
-#search {
-	height: 30px;
-	width: 58%;
-	padding: 5px;
-	font-family: 'acherus_militant_1_-_light.otf';
-}
+  #genreArrow {
+    display: inline;
+    float:right;
+    margin-top: -6.5vh;
+    height: 40px;
+    pointer-events: none;
+  }
 
-select {
-  display:block;
-	height: 40px;
-	width: 92%;
-  margin:auto;
-	font-family: 'acherus_militant_1_-_light.otf';
-}
+  select:hover {
+    cursor: pointer;
+  }
 
-input {
-	height: 40px;
-	padding: 0 40px 0 40px;
-	font-family: 'acherus_militant_1_-_light.otf';
-}
+  select option[value="select"]   {
+    background-image:url(images/genreArrow.png);
+  }
 
-input.search {
-	height: 40px;
-	padding: 0px;
-  width:90%;
-  text-align: center;
-  left:4px;
-}
+  input {
+  	height: 40px;
+  	padding: 0 40px 0 40px;
+  	font-family: 'acherus_militant_1_-_light.otf';
+  }
 
-select {
-  margin-top: 3vh;
-	font-family: 'acherus_militant_1_-_light.otf';
-}
+  input.search {
+  	height: 40px;
+  	padding-left: 5%;
+    width:95%;
+    top: 0px;
+    left:0px;
+    margin: -30px auto auto auto;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+    border:none;
+    background-color: #f9fbfb;
+  }
 
-#copyright {
-	color: #f2f2f2;
-	text-align: center;
-	font-family: 'acherus_militant_1_-_light.otf';
-  margin-top: 40vh;
-  margin-bottom: 0vh;
-  height:5vh;
-  line-height:5vh;
-  font-size: 12px;
-}
+  #livesearch {
+    display:block;
+    position: absolute;
+    margin-top:10px;
+    width:90%;
+    line-height: 30px;
+    font-size:.7em;
+    background-color: #f1f1f1;
+  }
+
+  #searchButton {
+    display: inline;
+    float:right;
+    margin-top: -6.5vh;
+    height: 40px;
+    z-index: 10;
+  }
+
+  #copyright {
+    font-size: 12px;
+  }
 
   #pageCon {
     height: 100vh;
@@ -566,8 +667,13 @@ select {
     padding: 0px 5%;
   }
 
+  #page {
+    width:80%;
+  }
+
   .movieThumbs {
     width:24%;
+    margin-bottom: 5px;
   }
 
   .photos {
@@ -590,19 +696,99 @@ select {
     margin-top: 150px;
   }
 
+  #commentViewer {
+    background-color: #fff;
+    height: 100px;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+
+  .review {
+    height: 100px;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding:1% 2% 4% 2%;
+    top: 0px;
+    left:0px;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+    border:none;
+    background-color: #f9fbfb;
+  }
+
+  #nextGallButton {
+    transition: .3s;
+    position: absolute;
+    right:0;
+    top:50%;
+    transform:translateY(-50%);
+    width:60px;
+    height:20%;
+    background-color: #c44449;
+    border-radius: 35px 0px 0px 35px;
+  }
+
+  #nextGallButton:hover {
+    transition: .5s;
+    width:75px;
+    cursor: pointer;
+  }
+
+  #arrowRight {
+    height: 65%;
+    top: 18%;
+    left: 2vh;
+    position: absolute;
+  }
+
+  #prevGallButton {
+    transition: .3s;
+    position: absolute;
+    left:0;
+    top:50%;
+    transform:translateY(-50%);
+    width:60px;
+    height:20%;
+    background-color: #c44449;
+    border-radius: 0px 35px 35px 0px;
+  }
+
+  #prevGallButton:hover {
+    transition: .5s;
+    width:75px;
+    cursor: pointer;
+  }
+
+  #arrowLeft {
+    height: 65%;
+    top: 18%;
+    right: 2vh;
+    position: absolute;
+  }
+
 }
 
-/* Largest Screens ------------------------------------------------------------*/
+/* Largest Screens */
 @media only screen and (min-width: 1280px) {
+  body {
+    overflow:hidden;
+  }
 
-  #mainNav {
-  		display:table;
-      height: 100%;
-  	}
+	#mainNav{
+		display: table;
+    height: 100%;
+	}
 
 	#mobileNav {
 		display: none;
 	}
+
+  #livesearch {
+    display:block;
+  }
 
   #copyright {
     font-size:16px;
@@ -624,7 +810,6 @@ select {
   }
 
   .movieThumbs {
-    background-color: #c0c0c0;
     width:24%;
     list-style-type: none;
   }
@@ -644,6 +829,7 @@ select {
     left: 0;
     z-index: 4;
     opacity: 0;
+    overflow: scroll;
   }
 
   #closeButton {
@@ -658,7 +844,7 @@ select {
     cursor: pointer;
   }
 
-  #fullPhotoInfo {
+  #movieTrailer {
     height: 82%;
     position: absolute;
     right: 0;
@@ -677,6 +863,7 @@ select {
     position: relative;
     max-height: 80%;
     width: auto;
+    margin-top: 20%;
   }
 
   #desc {
@@ -697,64 +884,6 @@ select {
     line-height: 15px;
   }
 
-  #nextGallButton {
-    transition: .3s;
-    position: absolute;
-    right:0;
-    top:50%;
-    transform:translateY(-50%);
-    width:60px;
-    height:25%;
-    background-color: #f6f6f6;
-    border-radius: 5px 0px 0px 5px;
-  }
 
-  #nextGallButton:hover {
-    transition: .5s;
-    width:75px;
-    cursor: pointer;
-  }
-
-  #arrowRight {
-    width: 0;
-    height: 0;
-    position: absolute;
-    left:20%;
-    top:50%;
-    transform:translateY(-50%);
-    border-top: 40px solid transparent;
-    border-bottom: 40px solid transparent;
-    border-left: 40px solid #0c0c0c;
-  }
-
-  #prevGallButton {
-    transition: .3s;
-    position: absolute;
-    left:0;
-    top:50%;
-    transform:translateY(-50%);
-    width:60px;
-    height:25%;
-    background-color: #f6f6f6;
-    border-radius: 0px 5px 5px 0px;
-  }
-
-  #prevGallButton:hover {
-    transition: .5s;
-    width:75px;
-    cursor: pointer;
-  }
-
-  #arrowLeft {
-    width: 0;
-    height: 0;
-    position: absolute;
-    top:50%;
-    right:20%;
-    transform:translateY(-50%);
-    border-top: 40px solid transparent;
-    border-bottom: 40px solid transparent;
-    border-right:40px solid #0c0c0c;
-  }
 
 }

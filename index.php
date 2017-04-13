@@ -30,6 +30,7 @@ if(isset($_GET['filter'])) {
 <!--<link href="css/foundation.css" rel="stylesheet" type="text/css">
 <link href="css/foundation.min.css" rel="stylesheet" type="text/css"> Needed for data interchange that isnt working-->
 <link href="css/main.css" rel="stylesheet" type="text/css">
+<link href="css/video.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -38,26 +39,30 @@ if(isset($_GET['filter'])) {
 		<nav id="mainNav">
 			<div id="sideBar">
 			<h2 class="hidden">Main navigation</h2>
-
-					<img src="images/logo.png" id="logo" alt="reVIEWed Logo">
+					<a href="index.php">
+						<img src="images/logo.png" id="logo" alt="reVIEWed Logo">
+					</a>
 					<ul>
 						<form> <!-- action="/action_page.php" -->
-							  <input class="search" type="text" placeholder="search by name" name="name"><br>
-								<select name="filter">
-									<option value="select">search by genre</option>
+								<select onchange="this.form.submit();" name="filter" placeholder="Search by genre">
+									<option value="select"><?php if(isset($_GET['filter'])){ echo $filter; }else{ echo "Select genre";} ?></option>
 									<option value="action">Action</option>
 									<option value="comedy">Comedy</option>
 									<option value="family">Family</option>
 									<option value="romance">Romance</option>
-									<option value="">All</option>
+									<option value="all movies">All Movies</option>
 								</select>
+								<img src="images/genreArrow.png" alt="genre select" id="genreArrow">
 								<br>
-						  <input type="submit" value="Submit">
+
+								<input class="search" type="text" placeholder="Search by name" name="name" onkeyup="showResult(this.value)" autocomplete="off">
+								<div id="livesearch"><img src="images/searchIcon.png" alt="Search Button" id="searchButton"></div>
 						</form>
 						<h6 id="copyright">Copyright © 2017</h6>
 					</ul>
 				</div>
 		</nav>
+
 
 		<section id="page">
 	<div id="pageCon" class="welcomePage">
@@ -73,11 +78,23 @@ if(isset($_GET['filter'])) {
 			<!-- movie search-->
 			<ul class="movieCon">
 			<?php
+
+				if(isset($_GET['filter']) AND $filter == "all movies"){
+						$tbl = "tbl_movies";
+						$getMovies = getAll($tbl);
+						while($row = mysqli_fetch_array($getMovies)){
+						echo "
+						<li class=\"movieThumbs\">
+							<img src=\"images/thumbs/{$row['movies_thumb']}\" alt=\"{$row['movies_title']}\" id=\"{$row['movies_id']}\">
+						</li>";
+					}
+				}
+
 				if(isset($_GET['filter'])){
 					while($row = mysqli_fetch_array($getMovies)){
 						echo "
 						<li class=\"movieThumbs\">
-							<img src=\"images/thumbs/{$row['movies_thumb']}\" alt=\"{$row['movies_title']}\">
+							<img src=\"images/thumbs/{$row['movies_thumb']}\" alt=\"{$row['movies_title']}\" id=\"{$row['movies_id']}\">
 						</li>";
 					}
 				}else{
@@ -91,28 +108,76 @@ if(isset($_GET['filter'])) {
 		<div id="pop">
 		  <img src="images/closeButton.svg" alt="close full image button" id="closeButton" title="esc key">
 
-		  <div id="fullPhotoInfo">
-		    <img id="mainImg" alt="Full selected photo">
+		  <div id="movieTrailer">
+		    <video id="mainImg" alt="Full selected photo" controls>
+					<source src="images/trailers/badMoms_trailer.mp4" type="video/mp4">
+				</video>
+
+				<div class="controls hideMe">
+		        <input type="image" class="pPause" src="images/play.png">
+		        <span id="curtimetext">00:00</span>
+		        <input id="seekslider" type="range" min="0" max="100" value="0" step="1">
+		        <span id="durtimetext">00:00</span>
+		        <input type="image" id="volMute" src="images/mute.png">
+			        <div id="vol">
+			          <input id="volumeslider" type="range" min="0" max="100" value="100" step="1">
+			        </div>
+	      </div>
+
 		    <p id="desc"></p>
-		    <p id="cred">Photo Credit:</p>
+		    <p id="cred"></p>
+				<ul id="commentViewer">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<textarea class="review" type="text" placeholder="Add a Review" name="reviews"></textarea>
 		  </div>
 
 		  <div id="nextGallButton" title="Right arrow key">
-		    <div id="arrowRight"></div>
+		    <img src="images/rightArrow.png" alt="right arrow key" id="arrowRight">
 		  </div>
 		  <div id="prevGallButton" title="Left arrow key">
-		    <div id="arrowLeft"></div>
+		    <img src="images/leftArrow.png" alt="left arrow key" id="arrowLeft">
 		  </div>
 		</div>
 
 		</div><!-- dynamicContent Finishes -->
 	</div>
 
-<h6 id="mobileCopyright">Copyright © 2017</h6>
-
 </section>
 </div><!--End of site container-->
+
 <script src="script/main.js"></script>
+<script src="script/video.js"></script>
+<script>
+function showResult(str) {
+
+	if (str.length==0) {
+    document.getElementById("livesearch").innerHTML="";
+    return;
+  }
+
+	httpRequest = new XMLHttpRequest();
+	//its a js api (virtual object) has properties and events
+
+	if (!httpRequest) {
+		//if its too old it wont have the object built in
+		console.log('this will not work on your computer');
+		return false;
+	}
+	httpRequest.onreadystatechange = showImage;
+	httpRequest.open('GET', 'includes/livesearch.php' + '?search=' + str);
+	httpRequest.send();
+}
+
+	function showImage() {
+		if (httpRequest.readyState === XMLHttpRequest.DONE && httpRequest.status === 200) {
+			document.getElementById("livesearch").innerHTML=this.responseText;
+		}
+}
+</script>
 <!--<script src="script/jsObject.js"></script>
 <script src="greensock/src/minified/TimelineLite.min.js"></script>
 <script src="script/TweenMax.min.js"></script>
