@@ -30,7 +30,6 @@ if(isset($_GET['filter'])) {
 <!--<link href="css/foundation.css" rel="stylesheet" type="text/css">
 <link href="css/foundation.min.css" rel="stylesheet" type="text/css"> Needed for data interchange that isnt working-->
 <link href="css/main.css" rel="stylesheet" type="text/css">
-<link href="css/video.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -133,6 +132,8 @@ if(isset($_GET['filter'])) {
 					<li></li>
 				</ul>
 				<textarea class="review" type="text" placeholder="Add a Review" name="reviews"></textarea>
+				<br>
+				<input type="submit" value="Submit" class="submit">
 		  </div>
 
 		  <div id="nextGallButton" title="Right arrow key">
