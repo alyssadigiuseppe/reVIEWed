@@ -324,20 +324,12 @@ select {
   transition: .5s;
   width:75px;
   cursor: pointer;
-}
+}*/
 
 #arrowRight {
-  width: 0;
-  height: 0;
-  position: absolute;
-  left:20%;
-  top:50%;
-  transform:translateY(-50%);
-  border-top: 40px solid transparent;
-  border-bottom: 40px solid transparent;
-  border-left: 40px solid #0c0c0c;
+  display: none;
 }
-
+/*
 #prevGallButton {
   transition: .3s;
   position: absolute;
@@ -354,19 +346,11 @@ select {
   transition: .5s;
   width:75px;
   cursor: pointer;
-}
+}*/
 
 #arrowLeft {
-  width: 0;
-  height: 0;
-  position: absolute;
-  top:50%;
-  right:20%;
-  transform:translateY(-50%);
-  border-top: 40px solid transparent;
-  border-bottom: 40px solid transparent;
-  border-right:40px solid #0c0c0c;
-}*/
+display: none;
+}
 
 #content {
   max-width: 1024px;
@@ -738,6 +722,7 @@ select {
   }
 
   #arrowRight {
+    display: block;
     height: 65%;
     top: 18%;
     left: 2vh;
@@ -763,6 +748,7 @@ select {
   }
 
   #arrowLeft {
+    display: block;
     height: 65%;
     top: 18%;
     right: 2vh;

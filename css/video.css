@@ -4,7 +4,6 @@
 	display: block;
 	position: relative;
 	margin: 0 auto;
-	max-width: 448px;
 	padding: 0px 5%;
 	background: rgba(255,255,255,0);
 	background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(245,248,255,1) 100%);
@@ -227,16 +226,19 @@ input[type=range]:focus::-ms-fill-upper {
   background: #fafafa;
 }
 
-/*Medium Screens*/
+/*Medium Screens
     @media only screen and (min-width: 641px) and (max-width: 959px){
 
-			#seekslider {
-				width: 38%;
+			/*#seekslider {
+				width: 35%;
 			}
 
 			.controls {
-				position:relative;
-				padding: 0px;
+				display: block;
+				position: relative;
+				margin: 0 auto;
+				max-width: 800px;
+				padding: 0px 5%;
 				background: rgba(255,255,255,0);
 				background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(245,248,255,1) 100%);
 				background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,0)), color-stop(100%, rgba(245,248,255,1)));
@@ -249,27 +251,29 @@ input[type=range]:focus::-ms-fill-upper {
 
 			.pPause {
 				vertical-align: middle;
-				width: 8%;
+				width: 5%;
 				height:30px;
+				display: inline;
 			}
 
 			#volMute {
-			  width: 8%;
-				text-align: center;
+			  width: 5%;
 				vertical-align: middle;
-				margin: 0 5px 0 10px;
+				display: inline;
 			}
 
 			#curtimetext, #durtimetext {
+				display: inline;
 				color: black;
 			}
 
 			#vol input[type=range] {
+				display: inline;
 			  width: 14%;
 			}
 }
 
-/* Largest Screens */
+/* Largest Screens
     @media only screen and (min-width: 960px) {
 
 .hideMe { display:none; }
@@ -338,4 +342,4 @@ input[type=range]:focus::-ms-fill-upper {
 	margin: auto;
 }
 
-}
+}*/
