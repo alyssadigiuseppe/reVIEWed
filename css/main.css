@@ -19,9 +19,10 @@
 }
 
 body {
-  background: #ffffff;
+  background: #f9fbfb;
   font-size: 16px;
-  margin:0px; }
+  margin:0px;
+}
 
 h1 {
   text-align: center;
@@ -121,7 +122,6 @@ section, article { position: relative; width: 635px; margin: 0 auto; border: 0; 
 #paraphrase {
   max-width: 1024px;
   display: block;
-  margin: auto auto 5% auto;
   text-align: center;
 }
 
@@ -135,10 +135,11 @@ section, article { position: relative; width: 635px; margin: 0 auto; border: 0; 
   overflow: initial;
 }
 
+/*----------------------------------------------------------------------------*/
 #logo {
-  margin:auto;
-  width:90%;
+  width:30%;
   display:block;
+  float:left;
 }
 
 #logo:hover {
@@ -149,64 +150,62 @@ section, article { position: relative; width: 635px; margin: 0 auto; border: 0; 
 	font-family: 'erasitcmedium';
 	overflow: hidden;
 	position:relative;
-	min-height: 100vh;
 	background-color: #c44449;
-	width: 20%;
-	max-width: 251px;
-	height:100%;
+	width: 100%;
 	font-size: 24px;
 	line-height: 60px;
-	display:table;
-	display:none;
-  float:left;
+  z-index: 1;
 }
 
 form {
-  height:25vh;
+  height:inherit;
 }
 
 #mainNav ul {
+  width:65%;
 	padding: 0px;
-	margin:15vh 0 0 0;
-	text-align: center;
+  height:40px;
+	margin: 0px;
+	/*text-align: center;*/
 	list-style-type: none;
+  float:right;
 }
 
 #sideBar {
   padding:5vh 5%;
-}
-
-#search {
-	height: 30px;
-	width: 58%;
-	padding: 5px;
-	font-family: 'acherus_militant_1_-_light.otf';
-}
-
-select {
-  display:block;
-	height: 40px;
-	width: 92%;
-  margin:auto;
-	font-family: 'acherus_militant_1_-_light.otf';
-}
-
-input {
-	height: 40px;
-	padding: 0 40px 0 40px;
-	font-family: 'acherus_militant_1_-_light.otf';
+  overflow: hidden;
 }
 
 input.search {
-	height: 40px;
-	padding: 0px;
-  width:90%;
-  text-align: center;
+  position: relative;
+	height: 37px;
+  width:45%;
+  float: left;
+	padding: 0px 0px 0px 5%;
+  margin: -60px auto auto auto;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  border:none;
+}
+
+#livesearch {
+  display:none;
+  background-color: #f9fbfb;
 }
 
 select {
-  margin-top: 3vh;
-	font-family: 'acherus_militant_1_-_light.otf';
+  font-family: 'acherus_militant_1_-_light.otf';
+  text-transform: capitalize;
+  float:right;
+  display: inline-block;
+	height: 37px;
+	width: 45%;
+  padding-left:5%;
+  border:none;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  color:#4a4949;
+  background-color: #ffffff;
 }
 
 #copyright {
@@ -260,7 +259,7 @@ select {
   cursor: pointer;
 }
 
-#fullPhotoInfo {
+#movieTrailer {
   height: 82%;
   position: absolute;
   right: 0;
@@ -278,7 +277,7 @@ select {
   margin: 0 auto;
   position: relative;
   max-height: 80%;
-  width: auto;
+  width: 70%;
 }
 
 #desc {
@@ -383,6 +382,10 @@ select {
   width:100%;
 }
 
+.movieThumbs img:hover {
+  cursor: pointer;
+}
+
 #mobileNav {
   overflow:hidden;
 	position: relative;
@@ -431,7 +434,7 @@ select {
 	margin-bottom:1%;
 	background-color:#181818;
 	height:60px;
-	color: #ffffff;
+	color: #f9fbfb;
 	font-size:24px;
 }
 
@@ -442,7 +445,7 @@ select {
 }
 
 #page {
-  width:80%;
+  width:100%;
   margin-top: 0px;
   height: 100%;
   display: table;
@@ -490,7 +493,7 @@ select {
 .photos {
   padding: 5px;
   margin-top: 10px;
-  color: white;
+  color: #f9fbfb;
   font-weight: bold;
   font-size: 1.5em;
   text-align: center;
@@ -525,17 +528,103 @@ select {
 
 /* Medium Screen */
 @media only screen and (min-width: 640px){
+  body {
+    overflow:hidden;
+  }
+
   h1 {
     font-size: 72px;
   }
 
-	#mainNav {
-		display:table;
-    height: 100%;
-	}
-	#mobileNav {
-		display: none;
-	}
+  #logo {
+    margin:auto;
+    width:90%;
+    display:block;
+    float:none;
+  }
+
+  #logo:hover {
+  	cursor: pointer;
+  }
+
+  #mainNav {
+  	font-family: 'erasitcmedium';
+  	overflow: hidden;
+  	position:relative;
+  	min-height: 100vh;
+  	background-color: #c44449;
+  	width: 20%;
+  	max-width: 251px;
+  	height:100%;
+  	font-size: 24px;
+  	line-height: 60px;
+  	display:table;
+    float:left;
+  }
+
+  form {
+    height:25vh;
+  }
+
+  #mainNav ul {
+    width:100%;
+  	padding: 0px;
+  	margin:15vh 0 0 0;
+  	text-align: center;
+  	list-style-type: none;
+  }
+
+  #sideBar {
+    padding:5vh 5%;
+    overflow: inherit;
+    height: 100vh;
+  }
+
+  select {
+    display:block;
+  	height: 40px;
+  	width: 100%;
+    margin:auto;
+  	font-family: 'acherus_militant_1_-_light.otf';
+    text-transform: capitalize;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+    padding-left:5%;
+    float:none;
+  }
+
+  select:hover {
+    cursor: pointer;
+  }
+
+  input {
+  	height: 40px;
+  	padding: 0 40px 0 40px;
+  	font-family: 'acherus_militant_1_-_light.otf';
+  }
+
+  input.search {
+  	height: 40px;
+  	padding-left: 5%;
+    width:95%;
+    top: 0px;
+    left:0px;
+    margin: -30px auto auto auto;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+    border:none;
+    background-color: #f9fbfb;
+  }
+
+  #livesearch {
+    display:block;
+    position: absolute;
+    margin-top:10px;
+    width:90%;
+    line-height: 30px;
+    font-size:.7em;
+    background-color: #f1f1f1;
+  }
 
   #copyright {
     font-size: 12px;
@@ -548,8 +637,13 @@ select {
     padding: 0px 5%;
   }
 
+  #page {
+    width:80%;
+  }
+
   .movieThumbs {
     width:24%;
+    margin-bottom: 5px;
   }
 
   .photos {
@@ -576,6 +670,9 @@ select {
 
 /* Largest Screens */
 @media only screen and (min-width: 1280px) {
+  body {
+    overflow:hidden;
+  }
 
 	#mainNav{
 		display: table;
@@ -585,6 +682,10 @@ select {
 	#mobileNav {
 		display: none;
 	}
+
+  #livesearch {
+    display:block;
+  }
 
   #copyright {
     font-size:16px;
@@ -606,7 +707,6 @@ select {
   }
 
   .movieThumbs {
-    background-color: #c0c0c0;
     width:24%;
     list-style-type: none;
   }
@@ -640,7 +740,7 @@ select {
     cursor: pointer;
   }
 
-  #fullPhotoInfo {
+  #movieTrailer {
     height: 82%;
     position: absolute;
     right: 0;

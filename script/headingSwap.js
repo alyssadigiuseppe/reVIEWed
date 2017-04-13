@@ -1,6 +1,6 @@
 (function(){
 
-  var pic = document.querySelectorAll(".movieThumbs img"),
+  var pic = document.querySelectorAll(".galleryPhotos img"),
       popup = document.querySelector("#pop"),
       closePop = document.querySelector("#closeButton"),
       mainImg = document.querySelector("#mainImg"),
@@ -10,7 +10,6 @@
     function open() {
       popup.style.display = "block";
       var currentPhoto = this.id;
-      console.log(currentPhoto);
 
       var next = document.querySelector('#nextGallButton'),
           prev = document.querySelector('#prevGallButton');

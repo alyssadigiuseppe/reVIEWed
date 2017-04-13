@@ -9,9 +9,9 @@
 
 	$mysqli->set_charset("utf8");
 
-	$photos = $_GET["image"];
+	$movie = $_GET["movie"];
 
-	$myQuery = "SELECT * FROM tbl_gallery WHERE gallery_id='$photos'";
+	$myQuery = "SELECT * FROM tbl_movies WHERE movies_id='$movie'";
 
 
 
