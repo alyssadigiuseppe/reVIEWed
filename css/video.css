@@ -6,13 +6,14 @@
 	margin: 0 auto;
 	padding: 0px 5%;
 	background: rgba(255,255,255,0);
-	background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(245,248,255,1) 100%);
-	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,0)), color-stop(100%, rgba(245,248,255,1)));
-	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(245,248,255,1) 100%);
-	background: -o-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(245,248,255,1) 100%);
-	background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(245,248,255,1) 100%);
-	background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(245,248,255,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#ededed', GradientType=0 );
+	background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(44,44,44,.8)), color-stop(100%, rgba(44,44,44,1)));
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
+	background: -o-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
+	background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
+	background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a0a0a', endColorstr='#0a0a0a', GradientType=0 );
+	padding: 0px;
 }
 
 .pPause {
@@ -35,11 +36,11 @@
 	text-align: center;
 	padding-top: 4px;
 	font-size: 12px;
-	color:black;
+	color:#ededed;
 }
 
 #seekslider {
-  width: 38%;
+  width: 30%;
 	margin-right: 5px;
 }
 
@@ -226,11 +227,11 @@ input[type=range]:focus::-ms-fill-upper {
   background: #fafafa;
 }
 
-/*Medium Screens
+/*Medium Screens*/
     @media only screen and (min-width: 641px) and (max-width: 959px){
 
-			/*#seekslider {
-				width: 35%;
+			#seekslider {
+				width: 30%;
 			}
 
 			.controls {
@@ -240,13 +241,14 @@ input[type=range]:focus::-ms-fill-upper {
 				max-width: 800px;
 				padding: 0px 5%;
 				background: rgba(255,255,255,0);
-				background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(245,248,255,1) 100%);
-				background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,0)), color-stop(100%, rgba(245,248,255,1)));
-				background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(245,248,255,1) 100%);
-				background: -o-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(245,248,255,1) 100%);
-				background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(245,248,255,1) 100%);
-				background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(245,248,255,1) 100%);
-				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#ededed', GradientType=0 );
+				background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
+				background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(44,44,44,.8)), color-stop(100%, rgba(44,44,44,1)));
+				background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
+				background: -o-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
+				background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
+				background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a0a0a', endColorstr='#0a0a0a', GradientType=0 );
+				padding: 0px;
 			}
 
 			.pPause {
@@ -264,22 +266,22 @@ input[type=range]:focus::-ms-fill-upper {
 
 			#curtimetext, #durtimetext {
 				display: inline;
-				color: black;
+				color: #ededed;
 			}
 
 			#vol input[type=range] {
 				display: inline;
-			  width: 14%;
+			  width: 10%;
 			}
 }
 
-/* Largest Screens
+/* Largest Screens*/
     @media only screen and (min-width: 960px) {
 
 .hideMe { display:none; }
 
 .video:hover .controls {
-	width: 80%;
+	width: 100%;
 	margin: auto;
 	margin-top:-40px;
 }
@@ -303,7 +305,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .pPause {
 	vertical-align: middle;
-	width: 10%;
+	width: 5%;
 	height:30px;
 }
 
@@ -312,14 +314,14 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 #volMute {
-  width: 8%;
+  width: 5%;
 	text-align: center;
 	vertical-align: middle;
 	margin: 0 5px 0 5px;
 }
 
 #curtimetext, #durtimetext {
-  width: 10%;
+  width: 8%;
   display: inline-block;
 	vertical-align: middle;
 	text-align: center;
@@ -328,7 +330,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 #seekslider {
-  width: 38%;
+  width: 30%;
 	margin-right: 5px;
 }
 
@@ -342,4 +344,4 @@ input[type=range]:focus::-ms-fill-upper {
 	margin: auto;
 }
 
-}*/
+}
