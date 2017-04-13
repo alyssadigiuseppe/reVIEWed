@@ -868,6 +868,13 @@ input[type=range]:focus::-ms-fill-upper {
   .movieThumbs {
     width:24%;
     margin-bottom: 5px;
+    transition: 2s;
+    opacity: .6;
+  }
+
+  .movieThumbs:hover {
+    transition: 2s;
+    opacity: 1;
   }
 
   .photos {
@@ -1053,6 +1060,12 @@ input[type=range]:focus::-ms-fill-upper {
   .movieThumbs {
     width:24%;
     list-style-type: none;
+    opacity: .6;
+  }
+
+  .movieThumbs:hover {
+    transition: 2s;
+    opacity: 1;
   }
 
   .title {
