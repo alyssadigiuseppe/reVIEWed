@@ -40,6 +40,7 @@ if(isset($_GET['filter'])) {
 			<h2 class="hidden">Main navigation</h2>
 					<a href="index.php">
 						<img src="images/logo.png" id="logo" alt="reVIEWed Logo">
+						<img src="images/genreArrow.png" alt="genre select" id="genreArrow">
 					</a>
 					<ul>
 						<form> <!-- action="/action_page.php" -->
@@ -51,6 +52,7 @@ if(isset($_GET['filter'])) {
 									<option value="romance">Romance</option>
 									<option value="all movies">All Movies</option>
 								</select>
+								<img src="images/searchIcon.png" alt="Search Button" id="searchButton">
 								<br>
 								<input class="search" type="text" placeholder="Search by name" name="name" onkeyup="showResult(this.value)" autocomplete="off">
 								<div id="livesearch"></div>
@@ -105,21 +107,43 @@ if(isset($_GET['filter'])) {
 		<div id="pop">
 		  <img src="images/closeButton.svg" alt="close full image button" id="closeButton" title="esc key">
 
-		  <div id="movieTrailer">
+			<div id="movieTrailer">
 		    <video id="mainImg" alt="Full selected photo" controls>
-					<source src="trailers/badMoms_trailer.mp4" type="video/mp4">
+					<source src="images/trailers/badMoms_trailer.mp4" type="video/mp4">
 				</video>
+
+				<div class="controls hideMe">
+		        <input type="image" class="pPause" src="images/play.png">
+		        <span id="curtimetext">00:00</span>
+		        <input id="seekslider" type="range" min="0" max="100" value="0" step="1">
+		        <span id="durtimetext">00:00</span>
+		        <input type="image" id="volMute" src="images/mute.png">
+			        <div id="vol">
+			          <input id="volumeslider" type="range" min="0" max="100" value="100" step="1">
+			        </div>
+	      </div>
+
 		    <p id="desc"></p>
 		    <p id="cred"></p>
+				<ul id="commentViewer">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<textarea class="review" type="text" placeholder="Add a Review" name="reviews"></textarea>
+				<br>
+				<input type="submit" value="Submit" class="submit">
+
 		  </div>
 
-		  <div id="nextGallButton" title="Right arrow key">
-		    <div id="arrowRight"></div>
-		  </div>
-		  <div id="prevGallButton" title="Left arrow key">
-		    <div id="arrowLeft"></div>
-		  </div>
-		</div>
+			<div id="nextGallButton" title="Right arrow key">
+ 			 <img src="images/rightArrow.png" alt="right arrow key" id="arrowRight">
+ 		 </div>
+ 		 <div id="prevGallButton" title="Left arrow key">
+ 			 <img src="images/leftArrow.png" alt="left arrow key" id="arrowLeft">
+ 		 </div>
+ 	 </div>
 
 		</div><!-- dynamicContent Finishes -->
 	</div>
@@ -128,6 +152,7 @@ if(isset($_GET['filter'])) {
 </div><!--End of site container-->
 
 <script src="script/main.js"></script>
+<script src="script/video.js"></script>
 <script>
 function showResult(str) {
 

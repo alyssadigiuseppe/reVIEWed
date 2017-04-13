@@ -4,12 +4,16 @@
       pop = document.querySelector("#pop"),
       closePop = document.querySelector("#closeButton"),
       trailerSrc = document.querySelector("#movieTrailer video source"),
+      trailer = document.querySelector("#movieTrailer video"),
       desc = document.querySelector("#desc"),
       cred = document.querySelector("#cred");
+
+      trailer.autoplay = false;
 
       function open() {
         pop.style.display = "block";
         pop.style.opacity = "1";
+        pop.style.transition = "1s";
         var currentMovie = this.id;
         console.log(this.id);
 
@@ -93,6 +97,7 @@
             var movieInfo = JSON.parse(httpRequest.responseText);
             console.log(movieInfo);
             trailerSrc.src = "trailers/" + movieInfo.movies_trailers;
+            trailer.load();
             desc.innerHTML = movieInfo.movies_title;
             cred.innerHTML = movieInfo.movies_year;
             pop.style.transition = ".3s";

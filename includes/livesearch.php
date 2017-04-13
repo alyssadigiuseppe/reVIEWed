@@ -7,13 +7,37 @@
 		exit();
 	 }
 
+	/* $tbl = "tbl_movies";
+	 $col = "movies_title";
+
+	 $names = getSingle($tbl, $col);
+	 $getResult = mysqli_fetch_array($names);
+
+	 echo $getResult;
+*/
+	 /*
+
+	 $names = getSingleCol($tbl,$col);
+	 echo $names;*/
+
+	/* $dbq = $mysqli->getElementsByTagName('movies_title');*/
+
  	$mysqli->set_charset("utf8");
 
 	 $string = $_GET["search"];
 
 	 if (strlen($string)>0) {
+		 /*echo $dbq;*/
+		 $liveSearch="";
 
-		 echo $string;
+		 if ($liveSearch=="") {
+		  $response="no suggestion";
+		} else {
+		  $response=$liveSearch;
+		}
+
+		echo $response;
+
 	 }
 
 /*$xmlDoc=new DOMDocument();
