@@ -182,7 +182,7 @@ input.search {
   width:45%;
   float: left;
 	padding: 0px 0px 0px 5%;
-  margin: -60px auto auto auto;
+  margin: -100px auto auto auto;
   -webkit-appearance: none;
   -webkit-border-radius: 0px;
   border:none;
@@ -255,7 +255,7 @@ select {
 	color: #ffffff;
 	text-align: center;
 	font-family: 'acherus_militant_1_-_light.otf';
-  margin-top: 40vh;
+  margin-top: 55vh;
   margin-bottom: 0vh;
   height:5vh;
   line-height:5vh;
@@ -824,10 +824,6 @@ input[type=range]:focus::-ms-fill-upper {
   	line-height: 60px;
   	display:table;
     float:left;
-  }
-
-  form {
-    height:25vh;
   }
 
   #mainNav ul {

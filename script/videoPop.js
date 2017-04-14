@@ -1,5 +1,5 @@
 (function(){
-//console.log("working");
+
   var pic = document.querySelectorAll(".movieThumbs img"),
       pop = document.querySelector("#pop"),
       closePop = document.querySelector("#closeButton"),
@@ -7,6 +7,11 @@
       trailer = document.querySelector("#movieTrailer video"),
       desc = document.querySelector("#desc"),
       cred = document.querySelector("#cred"),
+      commentSection = document.querySelector("#commentViewer"),
+      comments = document.querySelector("#commentViewer ul"),
+      movieId = document.querySelector("#movieId"),
+      commentForm = document.querySelector("#commentViewer form input[type='submit']"),
+      movieComment = document.querySelector("#movieComment");
       html = document.querySelector("html");
 
       trailer.autoplay = false;
@@ -19,6 +24,8 @@
         html.style.overflow = "hidden";
 
         var currentMovie = this.id;
+
+        commentSection.classList.add(this.id);
 
         var next = document.querySelector('#nextGallButton'),
             prev = document.querySelector('#prevGallButton');
@@ -97,16 +104,24 @@
       }
 
         function showImage() {
+          var comment = null;
+
           if (httpRequest.readyState === XMLHttpRequest.DONE && httpRequest.status === 200) {
             //parse stringified result
             var movieInfo = JSON.parse(httpRequest.responseText);
-            console.log(movieInfo);
-            trailerSrc.src = "trailers/" + movieInfo.movies_trailers;
+            trailerSrc.src = "trailers/" + movieInfo[0].movies_trailers;
             trailer.load();
-            desc.innerHTML = movieInfo.movies_title;
-            cred.innerHTML = movieInfo.movies_year;
+            desc.innerHTML = movieInfo[0].movies_title;
+            cred.innerHTML = movieInfo[0].movies_year;
+            movieId.value = movieInfo[0].movies_id;
             pop.style.transition = ".3s";
             pop.style.opacity = "1";
+
+            for(var i = 0; movieInfo.length > i; i++){
+              comment += "<li class=\"comment\">" + movieInfo[i].comment_text + "</li>";
+            }
+
+            comments.innerHTML = comment;
           }
       }
 
@@ -119,10 +134,31 @@
         html.style.overflow = "auto";
       }
 
+      function makeComment(e) {
+        e.preventDefault();
+        httpRequest = new XMLHttpRequest();
+
+        if (!httpRequest) {
+          console.log('this will not work on your computer');
+          return false;
+        }
+        httpRequest.onreadystatechange = createComment;
+        httpRequest.open('GET', 'admin/phpscripts/comment.php' + '?id=' + movieId.value + '&comment=' + movieComment.value );
+          httpRequest.send();
+
+          function createComment(){
+            if (httpRequest.readyState === XMLHttpRequest.DONE && httpRequest.status === 200) {
+                var commentText = document.querySelector("#movieComment");
+
+                comments.innerHTML += "<li class=\"comment\">" + commentText.value + "</li>";
+            }
+          }
+        }
+
     for (var i = 0; i < pic.length; i++) {
     pic[i].addEventListener('click', open, false);
 }
-
+    commentForm.addEventListener('click', makeComment, false);
     closePop.addEventListener('click', close, false);
 
 })();

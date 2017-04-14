@@ -11,13 +11,11 @@
 
 	$movie = $_GET["movie"];
 
-	$myQuery = "SELECT * FROM tbl_movies WHERE movies_id='$movie'";
-
-
+	$myQuery = "SELECT tbl_movies.*, tbl_comments.comment_text FROM tbl_movies LEFT JOIN tbl_comments ON tbl_movies.movies_id = tbl_comments.comment_movie WHERE movies_id = {$movie}";
 
 	$result = mysqli_query($mysqli, $myQuery);
 
 	//echo mysqli_num_rows($result);
-	echo json_encode(mysqli_fetch_assoc($result));
+	echo json_encode(mysqli_fetch_all($result, MYSQLI_ASSOC));
 
  ?>

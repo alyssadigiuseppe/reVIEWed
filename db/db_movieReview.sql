@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 14, 2017 at 10:32 AM
+-- Generation Time: Apr 14, 2017 at 11:00 PM
 -- Server version: 5.6.34
 -- PHP Version: 7.1.0
 
@@ -53,22 +53,6 @@ CREATE TABLE `tbl_comments` (
   `comment_movie` varchar(75) NOT NULL,
   `comment_text` varchar(750) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `tbl_comments`
---
-
-INSERT INTO `tbl_comments` (`comment_id`, `comment_movie`, `comment_text`) VALUES
-(1, '1', 'stuff'),
-(2, '2', 'junk'),
-(3, '3', 'boop'),
-(4, '4', 'beep'),
-(5, '5', 'bloop'),
-(6, '6', 'bleep'),
-(7, '7', 'bam'),
-(8, '8', 'boom'),
-(9, '9', 'boom'),
-(10, '10', 'zoom');
 
 -- --------------------------------------------------------
 
@@ -122,7 +106,7 @@ INSERT INTO `tbl_movies` (`movies_id`, `movies_thumb`, `movies_title`, `movies_y
 (2, 'proposal.jpg', 'The Proposal', '2009', 'theProposal_trailer.mp4', ''),
 (3, 'easyA.jpg', 'Easy A', '2010', 'easyA_trailer.mp4', ''),
 (4, 'badMoms.jpg', 'Bad Moms', '2016', 'badMoms_trailer.mp4', ''),
-(5, 'shesTheMan.jpg', 'She\'s the Man', '2006', 'shesTheMan_trailer.mp4', ''),
+(5, 'shesTheMan.jpg', 'She/\'s the Man', '2006', 'shesTheMan_trailer.mp4', ''),
 (6, 'up.jpg', 'Up', '2009', 'up_trailer.mp4', ''),
 (7, 'insideOut.jpg', 'Inside Out', '2015', 'insideOut_trailer.mp4', ''),
 (8, 'theHeat.jpg', 'The Heat', '2013', 'theHeat_trailer.mp4', ''),
@@ -170,7 +154,7 @@ ALTER TABLE `tbl_cat`
 -- AUTO_INCREMENT for table `tbl_comments`
 --
 ALTER TABLE `tbl_comments`
-  MODIFY `comment_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `comment_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT for table `tbl_l_mc`
 --
