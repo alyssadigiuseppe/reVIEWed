@@ -6,7 +6,8 @@
       trailerSrc = document.querySelector("#movieTrailer video source"),
       trailer = document.querySelector("#movieTrailer video"),
       desc = document.querySelector("#desc"),
-      cred = document.querySelector("#cred");
+      cred = document.querySelector("#cred"),
+      html = document.querySelector("html");
 
       trailer.autoplay = false;
 
@@ -14,8 +15,10 @@
         pop.style.display = "block";
         pop.style.opacity = "1";
         pop.style.transition = "1s";
+
+        html.style.overflow = "hidden";
+
         var currentMovie = this.id;
-        console.log(this.id);
 
         var next = document.querySelector('#nextGallButton'),
             prev = document.querySelector('#prevGallButton');
@@ -67,6 +70,8 @@
 
           if (evt.keyCode == 27) {
             pop.style.display = "none";
+
+            html.style.overflow = "auto";
           }
 
           if (evt.keyCode == 39) {
@@ -106,8 +111,12 @@
       }
 
       function close(){
+        trailer.pause();
+
         pop.style.display = "none";
         pop.style.opacity = 0;
+
+        html.style.overflow = "auto";
       }
 
     for (var i = 0; i < pic.length; i++) {

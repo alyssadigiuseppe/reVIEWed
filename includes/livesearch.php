@@ -5,82 +5,27 @@
 	 	if ($mysqli->connect_errno) {
 		printf("Connection failed: %s \n", $mysqli->connect_error);
 		exit();
-	 }
-
-	/* $tbl = "tbl_movies";
-	 $col = "movies_title";
-
-	 $names = getSingle($tbl, $col);
-	 $getResult = mysqli_fetch_array($names);
-
-	 echo $getResult;
-*/
-	 /*
-
-	 $names = getSingleCol($tbl,$col);
-	 echo $names;*/
-
-	/* $dbq = $mysqli->getElementsByTagName('movies_title');*/
+	}
 
  	$mysqli->set_charset("utf8");
 
 	 $string = $_GET["search"];
 
+	 $myQuery = "SELECT * FROM `tbl_movies` WHERE `movies_title` like '%$string%' LIMIT 5";
+	 $result = mysqli_query($mysqli, $myQuery);
+
 	 if (strlen($string)>0) {
-		 /*echo $dbq;*/
 		 $liveSearch="";
 
+		 foreach($result as $liveSearch){
+			 echo "<li class='livesearch'>" . "<a href='?filter=" . $liveSearch['movies_title'] . "' >" . $liveSearch['movies_title'] . "</a>" . "</li>";
+		 }
+
 		 if ($liveSearch=="") {
-		  $response="no suggestion";
-		} else {
-		  $response=$liveSearch;
+		  $response="<li class='livesearchNon'>no suggestions</li>";
 		}
 
 		echo $response;
 
 	 }
-
-/*$xmlDoc=new DOMDocument();
-$xmlDoc->load("links.xml");
-
-$x=$xmlDoc->getElementsByTagName('link');
-
-//get the q parameter from URL
-$q=$_GET["q"];
-
-//lookup all links from the xml file if length of q>0
-if (strlen($q)>0) {
-  $hint="";
-  for($i=0; $i<($x->length); $i++) {
-    $y=$x->item($i)->getElementsByTagName('title');
-    $z=$x->item($i)->getElementsByTagName('url');
-    if ($y->item(0)->nodeType==1) {
-      //find a link matching the search text
-      if (stristr($y->item(0)->childNodes->item(0)->nodeValue,$q)) {
-        if ($hint=="") {
-          $hint="<a href='" .
-          $z->item(0)->childNodes->item(0)->nodeValue .
-          "' target='_blank'>" .
-          $y->item(0)->childNodes->item(0)->nodeValue . "</a>";
-        } else {
-          $hint=$hint . "<br /><a href='" .
-          $z->item(0)->childNodes->item(0)->nodeValue .
-          "' target='_blank'>" .
-          $y->item(0)->childNodes->item(0)->nodeValue . "</a>";
-        }
-      }
-    }
-  }
-}
-
-// Set output to "no suggestion" if no hint was found
-// or to the correct values
-if ($hint=="") {
-  $response="no suggestion";
-} else {
-  $response=$hint;
-}
-
-//output the response
-echo $response;*/
 ?>

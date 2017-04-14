@@ -5,6 +5,7 @@ ini_set('display_errors',1);
 
 require_once('admin/phpscripts/init.php');
 
+//filtering
 if(isset($_GET['filter'])) {
 	$tbl1 = "tbl_movies";
 	$tbl2 = "tbl_cat";
@@ -18,6 +19,23 @@ if(isset($_GET['filter'])) {
 	$tbl = "tbl_movies";
 	$getMovies = getAll($tbl);
 }
+
+
+
+//submitting comment
+/*if(isset($_POST['submit'])) {
+	// we need $movieID to tell input it into the db on what movie it's for
+	$movieID = ;
+	$comment = trim($_POST['comment']);
+
+	if(empty($level)) {
+		$message = "Please fill in the comment area.";
+
+	}else{
+		$result = createComment($movieID, $comment);
+		$message = $result;
+	}
+}*/
 
 ?>
 <!doctype html>
@@ -125,15 +143,27 @@ if(isset($_GET['filter'])) {
 
 		    <p id="desc"></p>
 		    <p id="cred"></p>
-				<ul id="commentViewer">
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				<textarea class="review" type="text" placeholder="Add a Review" name="reviews"></textarea>
+				<section id="commentViewer">
+					<h2 class="hidden">Comment Section</h2>
+					<ul>
+
+						<?php
+						$commentTbl = "tbl_comments";
+						$getComment = getAll($commentTbl);
+
+						while($row = mysqli_fetch_array($getComment)){
+							echo "
+							<li id=\"{$row['comment_movie']}\">
+								<p class=\"comment\">{$row['comment_text']}
+							</li>";
+							}
+						 ?>
+
+					</ul>
+				<textarea class="review" type="text" placeholder="add your comment here..." name="comment"></textarea>
 				<br>
 				<input type="submit" value="Submit" class="submit">
+				</section>
 
 		  </div>
 
@@ -151,35 +181,9 @@ if(isset($_GET['filter'])) {
 </section>
 </div><!--End of site container-->
 
-<script src="script/main.js"></script>
-<script src="script/video.js"></script>
-<script>
-function showResult(str) {
-
-	if (str.length==0) {
-    document.getElementById("livesearch").innerHTML="";
-    return;
-  }
-
-	httpRequest = new XMLHttpRequest();
-	//its a js api (virtual object) has properties and events
-
-	if (!httpRequest) {
-		//if its too old it wont have the object built in
-		console.log('this will not work on your computer');
-		return false;
-	}
-	httpRequest.onreadystatechange = showImage;
-	httpRequest.open('GET', 'includes/livesearch.php' + '?search=' + str);
-	httpRequest.send();
-}
-
-	function showImage() {
-		if (httpRequest.readyState === XMLHttpRequest.DONE && httpRequest.status === 200) {
-			document.getElementById("livesearch").innerHTML=this.responseText;
-		}
-}
-</script>
+<script src="script/videoControls.js"></script>
+<script src="script/videoPop.js"></script>
+<script src="script/liveSearch.js"></script>
 <!--<script src="script/jsObject.js"></script>
 <script src="greensock/src/minified/TimelineLite.min.js"></script>
 <script src="script/TweenMax.min.js"></script>

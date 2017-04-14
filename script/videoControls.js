@@ -8,10 +8,11 @@
   var durtimetext = document.getElementById("durtimetext");
 	var volumeslider = document.getElementById("volumeslider");
 	var muteVideo = document.querySelector("#volMute");
-	var pPlay = document.querySelector("input");
+	var pPlay = document.querySelector(".pPause");
 
 	theControls.classList.remove("hideMe");
 	theVideo.controls = false;
+	theVideo.currentTime = 1;
 
 	function vidSeek() {
 	  var seekto = theVideo.duration * (seekslider.value / 100);
@@ -65,22 +66,6 @@
 		}
 	}
 
-	/*TweenLite.to(theControls, .5, {delay:5, opacity:0});
-
-	function bringBack() {
-		theControls.style.opacity = "1";
-		TweenLite.to(theControls, .5, {delay:5, opacity:0,repeat: -1});
-	}*/
-	var coolControls = window.matchMedia( "(min-width: 960px)" );
-
-	function bringBack() {
-		if (coolControls.matches){
-			theControls.style.opacity = "1";
-			TweenLite.to(theControls, .1, {delay:0, opacity:1,repeat: 0});
-
-			TweenLite.to(theControls, .5, {delay:3, opacity:0,repeat: 0});
-		}
-}
 	seekslider.addEventListener("change", vidSeek, false);
   theVideo.addEventListener("timeupdate", seektimeupdate, false);
 	volumeslider.addEventListener("change", setvolume, false);

@@ -193,6 +193,41 @@ input.search {
   background-color: #f9fbfb;
 }
 
+li.livesearch {
+  padding-left: 10%;
+  text-align: start;
+  height: 40px;
+  line-height:40px;
+  font-size: 12px;
+  color: #898585;
+  font-family: 'acherus_militant_1_-_light.otf';
+}
+
+.livesearch a {
+  color: #898585;
+  text-decoration: none;
+}
+
+li.livesearchNon {
+  padding-left: 10%;
+  text-align: start;
+  height: 40px;
+  line-height:40px;
+  font-size: 12px;
+  color: #898585;
+  font-family: 'acherus_militant_1_-_light.otf';
+  pointer-events: none;
+}
+
+li.livesearch:hover {
+  cursor: pointer;
+}
+
+.livesearch a:hover {
+  transition:.5s;
+  color: black;
+}
+
 #searchButton {
   display: none;
 }
@@ -217,7 +252,7 @@ select {
 }
 
 #copyright {
-	color: #f2f2f2;
+	color: #ffffff;
 	text-align: center;
 	font-family: 'acherus_militant_1_-_light.otf';
   margin-top: 40vh;
@@ -262,6 +297,7 @@ select {
   position: fixed;
   top: 18px;
   right: 18px;
+  z-index:2;
 }
 
 #closeButton:hover {
@@ -269,12 +305,9 @@ select {
 }
 
 #movieTrailer {
-  height: 82%;
   position: absolute;
   right: 0;
   left: 0;
-  top:50%;
-  transform: translateY(-50%);
   display:flex;
   flex-direction:column;
   align-items: center;
@@ -295,9 +328,10 @@ select {
   margin: 0 auto;
   position: relative;
   max-height: 8%;
-  color: #f6f6f6;
+  color: #c44449;
   text-align: center;
   margin-top: 20px;
+  max-width: 900px;
 }
 
 #cred {
@@ -306,6 +340,7 @@ select {
   color: #7d7d7d;
   text-align: center;
   line-height: 15px;
+  max-width: 900px;
 }
 
 #arrowRight {
@@ -318,23 +353,22 @@ display: none;
 
 .review {
   height: 200px;
-  width: 50%;
-  margin: 0 auto;
-  padding:2% 4% 6% 4%;
-  top: 0px;
-  left:0px;
+  width: 82%;
+  margin: 10px 5%;
+  padding:2% 4%;
+  border:none;
   -webkit-appearance: none;
   -webkit-border-radius: 0px;
-  border:none;
   background-color: #f9fbfb;
 }
 
 input.submit {
-  margin-bottom: 20px;
+  float: right;
+  margin:0px 5% 20px 0px;
+  padding: 20px 40px;
   border: none;
   background-color: #fff;
   color: #000;
-  padding: 12px 10px 24px 10px;
   text-decoration: none;
   cursor: pointer;
 }
@@ -514,14 +548,7 @@ input.submit {
 	position: relative;
 	margin: 0 auto;
 	padding: 0px 5%;
-	background: rgba(255,255,255,0);
-	background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
-	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(44,44,44,.8)), color-stop(100%, rgba(44,44,44,1)));
-	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
-	background: -o-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
-	background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
-	background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a0a0a', endColorstr='#0a0a0a', GradientType=0 );
+	background-color: rgba(011,011,011,.6);
 	padding: 0px;
   width:100%;
 }
@@ -529,8 +556,9 @@ input.submit {
 .pPause {
 	vertical-align: middle;
 	width: 8%;
-	margin: 5px 0 5px 0;
-	height:30px;
+  max-width:30px;
+	margin: 5px 0 5px 4%;
+	height:auto;
 }
 
 #volMute {
@@ -538,7 +566,9 @@ input.submit {
 	text-align: center;
 	vertical-align: middle;
   padding: 0 5px 0 5px;
-  height:40px;
+  height:auto;
+  width: 8%;
+  max-width:39px;
 }
 
 #curtimetext, #durtimetext {
@@ -552,7 +582,7 @@ input.submit {
 }
 
 #seekslider {
-  width: 38%;
+  width: 31%;
 	margin-right: 5px;
 }
 
@@ -735,6 +765,30 @@ input[type=range]:focus::-ms-fill-upper {
   background: #fafafa;
 }
 
+#commentViewer {
+  background-color: rgba(011,011,011,.6);
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+  max-width: 900px;
+}
+
+#commentViewer ul {
+  padding: 0px;
+}
+
+#commentViewer li {
+  background-color: #c0c0c0;
+  padding: 15px;
+  margin: 10px 5%;
+  display: block;
+  border-radius: 4px;
+}
+
+#commentViewer p {
+  margin:auto;
+}
+
 
 /* Medium Screen ---------------------------------------------------------------------*/
 @media only screen and (min-width: 640px){
@@ -850,6 +904,7 @@ input[type=range]:focus::-ms-fill-upper {
     right:5%;
     height: 40px;
     z-index: 10;
+    pointer-events: none;
   }
 
   #copyright {
@@ -871,7 +926,7 @@ input[type=range]:focus::-ms-fill-upper {
     width:24%;
     margin-bottom: 5px;
     transition: .5s;
-    opacity: .6;
+    opacity: .7;
   }
 
   .movieThumbs:hover {
@@ -901,26 +956,21 @@ input[type=range]:focus::-ms-fill-upper {
 
   #mainImg {
     width:70%;
-    margin-top:40vh;
   }
 
   #commentViewer {
-    background-color: #fff;
-    height: 100px;
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
     margin-top: 20px;
+    max-width: 900px;
+    border-radius: 3px;
   }
 
   .review {
-    height: 100px;
-    width: 50%;
-    margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding:1% 2% 4% 2%;
-    top: 0px;
-    left:0px;
+    height: 90px;
+    width: 86%;
+    margin: 5px 5%;
+    padding:20px 2%;
     -webkit-appearance: none;
     -webkit-border-radius: 0px;
     border:none;
@@ -929,11 +979,11 @@ input[type=range]:focus::-ms-fill-upper {
 
   #nextGallButton {
     transition: .3s;
-    position: absolute;
+    position: fixed;
     right:0;
     top:50%;
     transform:translateY(-50%);
-    width:60px;
+    width:10%;
     height:20%;
     background-color: #c44449;
     border-radius: 35px 0px 0px 35px;
@@ -941,7 +991,7 @@ input[type=range]:focus::-ms-fill-upper {
 
   #nextGallButton:hover {
     transition: .5s;
-    width:75px;
+    width:12%;
     cursor: pointer;
   }
 
@@ -949,17 +999,17 @@ input[type=range]:focus::-ms-fill-upper {
     display: block;
     height: 65%;
     top: 18%;
-    left: 2vh;
+    left: 35%;
     position: absolute;
   }
 
   #prevGallButton {
     transition: .3s;
-    position: absolute;
+    position: fixed;
     left:0;
     top:50%;
     transform:translateY(-50%);
-    width:60px;
+    width:10%;
     height:20%;
     background-color: #c44449;
     border-radius: 0px 35px 35px 0px;
@@ -967,7 +1017,7 @@ input[type=range]:focus::-ms-fill-upper {
 
   #prevGallButton:hover {
     transition: .5s;
-    width:75px;
+    width:12%;
     cursor: pointer;
   }
 
@@ -975,12 +1025,12 @@ input[type=range]:focus::-ms-fill-upper {
     display: block;
     height: 65%;
     top: 18%;
-    right: 2vh;
+    right: 35%;
     position: absolute;
   }
 
   #seekslider {
-    width: 43%;
+    width: 38%;
   }
 
   .controls {
@@ -990,21 +1040,14 @@ input[type=range]:focus::-ms-fill-upper {
     width: 70%;
     max-width: 800px;
     padding: 0px 5%;
-    background: rgba(255,255,255,0);
-    background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(44,44,44,.8)), color-stop(100%, rgba(44,44,44,1)));
-    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
-    background: -o-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
-    background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a0a0a', endColorstr='#0a0a0a', GradientType=0 );
+    background-color: rgba(011,011,011,.6);
     padding: 0px;
   }
 
   .pPause {
     vertical-align: middle;
     width: 8%;
-    height:30px;
+    height:auto;
     display: inline;
   }
 
@@ -1045,6 +1088,19 @@ input[type=range]:focus::-ms-fill-upper {
     display:block;
   }
 
+  li.livesearch {
+    padding-left: 10%;
+    text-align: start;
+    height: 40px;
+    line-height:40px;
+    font-size: 16px;
+    color: #898585;
+  }
+
+  li.livesearchNon {
+    font-size: 14px;
+  }
+
   #copyright {
     font-size:16px;
   }
@@ -1067,7 +1123,7 @@ input[type=range]:focus::-ms-fill-upper {
   .movieThumbs {
     width:24%;
     list-style-type: none;
-    opacity: .6;
+    opacity: .7;
   }
 
   .movieThumbs:hover {
@@ -1106,12 +1162,10 @@ input[type=range]:focus::-ms-fill-upper {
   }
 
   #movieTrailer {
-    height: 82%;
     position: absolute;
     right: 0;
     left: 0;
-    top:50%;
-    transform: translateY(-50%);
+    transform: translateY(12%);
     display:flex;
     flex-direction:column;
     align-items: center;
@@ -1124,26 +1178,27 @@ input[type=range]:focus::-ms-fill-upper {
     position: relative;
     height:auto;
     width: 70%;
-    margin-top: 15%;
     max-width:900px;
   }
 
   #desc {
     display: block;
-    margin: 0 auto;
+    width:70%;
+    margin: 20px auto auto auto;
     position: relative;
     max-height: 8%;
-    color: #f6f6f6;
-    text-align: center;
-    margin-top: 20px;
+    color: #c44449;
+    text-align: left;
+    font-size:25px;
   }
 
   #cred {
     display: block;
     margin: 0 auto;
     color: #7d7d7d;
-    text-align: center;
+    text-align: left;
     line-height: 15px;
+    width:70%;
   }
 
   .video:hover .controls {
@@ -1156,23 +1211,17 @@ input[type=range]:focus::-ms-fill-upper {
   	width: 70%;
   	position: relative;
   	transition: .5s;
-  	background: rgba(255,255,255,0);
-  	background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
-  	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(44,44,44,.8)), color-stop(100%, rgba(44,44,44,1)));
-  	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
-  	background: -o-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
-  	background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
-  	background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(44,44,44,.8) 100%);
-  	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a0a0a', endColorstr='#0a0a0a', GradientType=0 );
+  	background-color: rgba(011,011,011,.6);
   	padding: 0px;
   	transition-delay: 0s;
   	transition : .3s;
+    max-width:900px;
   }
 
   .pPause {
   	vertical-align: middle;
   	width: 6%;
-  	height:30px;
+  	height:auto;
   }
 
   #vol input[type=range] {
@@ -1208,6 +1257,12 @@ input[type=range]:focus::-ms-fill-upper {
   #volumeslider {
   	position: relative;
   	margin: auto;
+  }
+
+  #commentViewer {
+    width: 70%;
+    padding: 15px 0px;
+    margin-bottom:60px;
   }
 
 }
