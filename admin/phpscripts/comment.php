@@ -3,7 +3,7 @@
 	require("connect.php");
 
 		$id = $_GET['id'];
-		$comment = trim($_GET['comment']) ? : '';
+		$comment = addslashes(trim($_GET['comment']) ? : '');
 
 	// sending comment to db
 	if(!empty($comment)){
