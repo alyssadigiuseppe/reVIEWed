@@ -122,10 +122,7 @@
                 comment += "<li class=\"comment\">" + movieInfo[i].comment_text + "</li>";
               }
             }
-
-            if(comment !== null){
-              comments.innerHTML = comment;
-            }
+            comments.innerHTML = comment;
 
           }
       }
@@ -156,6 +153,8 @@
                 var commentText = document.querySelector("#movieComment");
 
                 comments.innerHTML += "<li class=\"comment\">" + commentText.value + "</li>";
+
+                commentText.value = '';
             }
           }
         }
