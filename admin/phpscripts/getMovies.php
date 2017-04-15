@@ -19,7 +19,6 @@
 	}
 
 	$jsonResult.="]";
-
 	//substr_replace(string,replace,start,length);
 	$jsonResult = substr_replace($jsonResult,'',-2,1);
 

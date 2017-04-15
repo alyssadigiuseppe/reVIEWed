@@ -7,7 +7,7 @@
 		if($runAll){
 			return $runAll;
 		}else{
-			$error =  "There was an error accessing this information.  Please contact your admin.";
+			$error =  "There was an error accessing this information.";
 			return $error;
 		}
 	}
@@ -20,20 +20,33 @@
 		if($runAll){
 			return $runAll;
 		}else{
-			$error =  "There was an error accessing this information.  Please contact your admin.";
+			$error =  "There was an error accessing this information.";
 			return $error;
 		}
 	}
 
 	function getSingle($tbl, $col, $id) {
 		include('connect.php');
-		$querySingle = "SELECT * FROM {$tbl} WHERE {$col}={$id}";
+		$querySingle = "SELECT * FROM {$tbl} WHERE {$col}='{$id}'";
 		$runSingle = mysqli_query($link, $querySingle);
 
 		if($runSingle){
 			return $runSingle;
 		}else{
-			$error =  "There was an error accessing this information.  Please contact your admin.";
+			$error =  "There was an error accessing this information.";
+			return $error;
+		}
+	}
+
+	function getSingleLike($tbl, $col, $id) {
+		include('connect.php');
+		$querySingle = "SELECT * FROM {$tbl} WHERE {$col} LIKE '%{$id}%'";
+		$runSingle = mysqli_query($link, $querySingle);
+
+		if($runSingle){
+			return $runSingle;
+		}else{
+			$error =  "There was an error accessing this information.";
 			return $error;
 		}
 	}
@@ -47,9 +60,8 @@
 		if($runFilter){
 			return $runFilter;
 		}else{
-			$error =  "There was an error accessing this information.  Please contact your admin.";
+			$error =  "There was an error accessing this information.";
 			return $error;
 		}
-
 	}
 ?>
