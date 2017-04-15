@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 13, 2017 at 04:18 PM
+-- Generation Time: Apr 15, 2017 at 03:08 AM
 -- Server version: 5.6.34
 -- PHP Version: 7.1.0
 
@@ -41,6 +41,18 @@ INSERT INTO `tbl_cat` (`cat_id`, `cat_name`, `cat_desc`) VALUES
 (2, 'comedy', 'Think of Eddie Murphy'),
 (3, 'family', 'Think of Disney'),
 (4, 'romance', 'Think of Borat in a bikini');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_comments`
+--
+
+CREATE TABLE `tbl_comments` (
+  `comment_id` int(10) UNSIGNED NOT NULL,
+  `comment_movie` varchar(75) NOT NULL,
+  `comment_text` varchar(750) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -112,6 +124,12 @@ ALTER TABLE `tbl_cat`
   ADD PRIMARY KEY (`cat_id`);
 
 --
+-- Indexes for table `tbl_comments`
+--
+ALTER TABLE `tbl_comments`
+  ADD PRIMARY KEY (`comment_id`);
+
+--
 -- Indexes for table `tbl_l_mc`
 --
 ALTER TABLE `tbl_l_mc`
@@ -132,6 +150,11 @@ ALTER TABLE `tbl_movies`
 --
 ALTER TABLE `tbl_cat`
   MODIFY `cat_id` smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `tbl_comments`
+--
+ALTER TABLE `tbl_comments`
+  MODIFY `comment_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT for table `tbl_l_mc`
 --
