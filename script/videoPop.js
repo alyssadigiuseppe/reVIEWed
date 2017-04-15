@@ -151,10 +151,11 @@
           function createComment(){
             if (httpRequest.readyState === XMLHttpRequest.DONE && httpRequest.status === 200) {
                 var commentText = document.querySelector("#movieComment");
-
+                if(commentText.value !== ''){
                 comments.innerHTML += "<li class=\"comment\">" + commentText.value + "</li>";
 
                 commentText.value = '';
+              }
             }
           }
         }

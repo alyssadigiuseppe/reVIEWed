@@ -6,8 +6,10 @@
 		$comment = trim($_GET['comment']) ? : '';
 
 	// sending comment to db
+	if(!empty($comment)){
 	$commentstring = "INSERT INTO tbl_comments VALUES(NULL, '{$id}', '{$comment}')";
 	$commentquery = mysqli_query($link, $commentstring);
+	}
 
 	if($commentquery){
 		echo 'Done';
