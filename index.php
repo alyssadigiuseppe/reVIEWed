@@ -32,10 +32,7 @@ if(isset($_GET['filter']) || isset($_GET['search'])) {
 <head>
 <meta charset="UTF-8" name="viewport" content="width=device-width"/>
 <title>reVIEWed</title>
-<link href="favicon.ico" rel="shortcut icon">
 <link href="http://fonts.googleapis.com/css?family=Mystery+Quest" rel="stylesheet" type="text/css">
-<!--<link href="css/foundation.css" rel="stylesheet" type="text/css">
-<link href="css/foundation.min.css" rel="stylesheet" type="text/css"> Needed for data interchange that isnt working-->
 <link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -199,9 +196,5 @@ if(isset($_GET['filter']) || isset($_GET['search'])) {
 <script src="script/videoControls.js"></script>
 <script src="script/videoPop.js"></script>
 <script src="script/liveSearch.js"></script>
-<!--<script src="script/jsObject.js"></script>
-<script src="greensock/src/minified/TimelineLite.min.js"></script>
-<script src="script/TweenMax.min.js"></script>
-<script src="greensock/src/minified/TweenLite.min.js"></script>-->
 </body>
 </html>

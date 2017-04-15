@@ -867,7 +867,7 @@ input[type=range]:focus::-ms-fill-upper {
   }
 
   select option[value="select"]   {
-    background-image:url(images/genreArrow.png);
+    background-image:url('../images/genreArrow.png');
   }
 
   input.search {
