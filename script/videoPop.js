@@ -118,10 +118,15 @@
             pop.style.opacity = "1";
 
             for(var i = 0; movieInfo.length > i; i++){
-              comment += "<li class=\"comment\">" + movieInfo[i].comment_text + "</li>";
+              if (movieInfo[i].comment_text !== null) {
+                comment += "<li class=\"comment\">" + movieInfo[i].comment_text + "</li>";
+              }
             }
 
-            comments.innerHTML = comment;
+            if(comment !== null){
+              comments.innerHTML = comment;
+            }
+
           }
       }
 

@@ -79,7 +79,7 @@ if(isset($_GET['filter']) || isset($_GET['search'])) {
 	<div id="pageCon" class="welcomePage">
 		<div class="tableCon">
 			<div class="vertCon">
-		<h1 class="home"><?php if($filter){ echo $filter; }else{ echo "Welcome!";} ?></h1>
+		<h1 class="home"><?php if(isset($filter)){ echo $filter; }else{ echo "Welcome!";} ?></h1>
 		<p id="paraphrase">
 		</p>
 		<div id="content"> <!-- dynamicContent goes in here -->

@@ -18,7 +18,7 @@
 		 $liveSearch="";
 
 		 foreach($result as $liveSearch){
-			 echo "<li class='livesearch'>" . "<a href='?filter=" . $liveSearch['movies_title'] . "' >" . $liveSearch['movies_title'] . "</a>" . "</li>";
+			 echo "<li class='livesearch'>" . "<a href='?search=" . $liveSearch['movies_title'] . "' >" . $liveSearch['movies_title'] . "</a>" . "</li>";
 		 }
 
 		 if ($liveSearch=="") {
